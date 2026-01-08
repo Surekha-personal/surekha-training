@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Surekha Training - Basic Controls</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            margin: 30px;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        hr {
+            margin: 15px 0;
+        }
+
+        .row {
+            margin: 10px 0;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 200px;
+            padding: 4px;
+        }
+
+        .buttons {
+            margin-top: 15px;
+        }
+
+        button {
+            padding: 4px 10px;
+            margin-right: 10px;
+        }
+
+        a {
+            color: blue;
+            text-decoration: none;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Surekha Training</h2>
+
+<p>This page can be used for practicing basic controls using Selenium</p>
+
+<hr>
+
+<div class="row">
+    <label>First Name</label>
+    <input type="text" id="firstName" placeholder="Enter First Name">
+</div>
+
+<div class="row">
+    <label>Last Name</label>
+    <input type="text" id="lastName" placeholder="Enter Last Name">
+</div>
+
+<div class="row">
+    <label>Gender</label>
+    <input type="radio" name="gender" id="male"> Male
+    <input type="radio" name="gender" id="female"> Female
+</div>
+
+<div class="row">
+    <label>Languages known</label>
+    <input type="checkbox" id="english"> English
+    <input type="checkbox" id="hindi"> Hindi
+    <input type="checkbox" id="chinese"> Chinese
+    <input type="checkbox" id="spanish"> Spanish
+    <input type="checkbox" id="french"> French
+</div>
+
+<div class="row">
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Enter Email">
+</div>
+
+<div class="row">
+    <label>Password</label>
+    <input type="password" id="password" placeholder="Enter Password">
+</div>
+
+<hr>
+
+<div class="buttons">
+    <button id="registerBtn">Register</button>
+    <button id="clearBtn" type="reset">Clear</button>
+    <a href="#">Click here to navigate to the home page</a>
+</div>
+
+</body>
+</html>
