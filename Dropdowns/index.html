@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML Dropdowns - Surekha Training</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        h1 {
+            border-bottom: 2px solid black;
+            width: fit-content;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        select {
+            width: 200px;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        .note {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>HTML Dropdowns</h1>
+
+    <p>
+        In HTML we have dropdown controls we use very often.
+        There are two types of dropdown available.
+    </p>
+
+    <ol>
+        <li>Single-Selection Dropdown</li>
+        <li>Multi-Selection Dropdown</li>
+    </ol>
+
+    <p>This page can be used for practicing dropdown controls using Selenium.</p>
+
+    <hr>
+
+    <!-- Single Selection Dropdown -->
+    <div class="section">
+        <label for="course">Course Name:</label><br>
+        <select id="course" name="course">
+            <option value="">Select</option>
+            <option value="java">Java</option>
+            <option value="dotnet">Dot Net</option>
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+        </select>
+    </div>
+
+    <br>
+
+    <!-- Multi Selection Dropdown -->
+    <div class="section">
+        <label for="ide">IDE Name:</label><br>
+        <select id="ide" name="ide" multiple size="4">
+            <option value="eclipse">Eclipse</option>
+            <option value="intellij">IntelliJ IDEA</option>
+            <option value="vscode">Visual Studio</option>
+            <option value="netbeans">NetBeans</option>
+        </select>
+    </div>
+
+    <div class="note">
+        <p>
+            Here the <b>Course Name</b> dropdown is a single-selection dropdown
+            and <b>IDE Name</b> dropdown is a multi-selection dropdown.
+        </p>
+    </div>
+
+</body>
+</html>
