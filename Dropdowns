@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Surekha Training - HTML Dropdowns</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000;
+        }
+
+        .container {
+            width: 900px;
+            margin: 30px auto;
+        }
+
+        h1 {
+            font-size: 28px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .section {
+            margin-top: 25px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: inline-block;
+            width: 120px;
+        }
+
+        select {
+            width: 180px;
+            padding: 4px;
+        }
+
+        .note {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>HTML Dropdowns</h1>
+
+    <p>
+        In HTML we have dropdown controls we use very often.
+        There are two types of dropdown available.
+    </p>
+
+    <ol>
+        <li>Single-Selection Dropdown</li>
+        <li>Multi-Selection Dropdown</li>
+    </ol>
+
+    <p>This page can be used for practicing dropdown controls using Selenium.</p>
+
+    <div class="section">
+        <label for="course">Course Name:</label>
+        <select id="course" name="course">
+            <option value="">Select</option>
+            <option value="java">Java</option>
+            <option value="dotnet">Dot Net</option>
+            <option value="python">Python</option>
+            <option value="javascript">Javascript</option>
+        </select>
+    </div>
+
+    <div class="section">
+        <label for="ide">IDE Name:</label>
+        <select id="ide" name="ide" multiple size="4">
+            <option value="eclipse">Eclipse</option>
+            <option value="intellij">IntelliJ IDEA</option>
+            <option value="vs">Visual Studio</option>
+            <option value="netbeans">NetBeans</option>
+        </select>
+    </div>
+
+    <div class="note">
+        <p>
+            Here the <b>Course Name</b> dropdown is a single-selection dropdown
+            and <b>IDE Name</b> dropdown is a multi-selection dropdown.
+        </p>
+    </div>
+
+</div>
+
+</body>
+</html>
