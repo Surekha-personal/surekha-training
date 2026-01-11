@@ -6,6 +6,3 @@ This repository contains HTML practice pages for learning Selenium and basic web
 
 - 🏠 Home Page  
   https://surekha-personal.github.io/surekha-training/
-
-- 🔽 Dropdowns Practice Page  
-  https://surekha-personal.github.io/surekha-training/Dropdowns.html
