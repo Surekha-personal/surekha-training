@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alerts Demo - Surekha Training</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #2c7be5;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            width: 70%;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .box {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        button {
+            padding: 8px 15px;
+            background: #2c7be5;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #1a5dc9;
+        }
+        #output {
+            margin-top: 15px;
+            font-weight: bold;
+            color: green;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+            color: #666;
+        }
+    </style>
+
+    <script>
+        function showAlert() {
+            alert("This is an alert box!");
+        }
+
+        function showConfirm() {
+            let result = confirm("Do you want to continue?");
+            document.getElementById("output").innerText =
+                result ? "You clicked OK" : "You clicked Cancel";
+        }
+
+        function showPrompt() {
+            let name = prompt("Enter your name:");
+            if (name) {
+                document.getElementById("output").innerText =
+                    "Hello " + name;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<header>
+    <h1>AlertsDemo</h1>
+    <p>Pop up boxes in HTML - Surekha Training</p>
+</header>
+
+<div class="container">
+
+    <div class="box">
+        <p>Click the below button to display an alert box.</p>
+        <button onclick="showAlert()">Click me</button>
+    </div>
+
+    <div class="box">
+        <p>Click the below button to display a confirm box.</p>
+        <button onclick="showConfirm()">Click me</button>
+    </div>
+
+    <div class="box">
+        <p>Click the below button to display a prompt box.</p>
+        <button onclick="showPrompt()">Click me</button>
+    </div>
+
+    <div id="output"></div>
+
+</div>
+
+<footer>
+    © 2026 Surekha Training | HTML Practice
+</footer>
+
+</body>
+</html>
