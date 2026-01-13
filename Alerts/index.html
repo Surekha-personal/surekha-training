@@ -1,96 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Alerts Demo - Surekha Training</title>
+    <title>Alerts Demo - GTS</title>
 
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial;
             margin: 30px;
         }
-
-        h1 {
-            color: #2c3e50;
-        }
-
         .box {
-            border: 1px solid #999;
-            border-radius: 5px;
+            border: 1px solid gray;
             padding: 15px;
             margin-bottom: 15px;
             width: 500px;
+            border-radius: 5px;
         }
-
         button {
-            padding: 6px 15px;
-            cursor: pointer;
+            padding: 6px 12px;
         }
-
-        #outputBox {
+        #output {
             font-weight: bold;
             color: green;
         }
     </style>
 
     <script>
-        function showAlert() {
-            alert("This is an Alert Box!");
+        function alertBox() {
+            alert("This is Alert Popup");
+            document.getElementById("output").innerText =
+                "You selected alert popup";
         }
 
-        function showConfirm() {
-            let result = confirm("Do you want to continue?");
-            document.getElementById("outputBox").innerText =
-                result ? "User clicked OK" : "User clicked Cancel";
+        function confirmBox() {
+            var result = confirm("This is Confirm Popup");
+            document.getElementById("output").innerText =
+                result ? "You selected OK" : "You selected Cancel";
         }
 
-        function showPrompt() {
-            let name = prompt("Enter your name:");
-            document.getElementById("outputBox").innerText =
-                name ? "Hello " + name : "User cancelled the prompt";
+        function promptBox() {
+            var name = prompt("Enter your name");
+            if (name != null) {
+                document.getElementById("output").innerText =
+                    "You entered : " + name;
+            }
         }
     </script>
 </head>
 
 <body>
 
-    <h1 id="pageTitle" name="pageTitle">Alerts Demo - Surekha Training</h1>
+<h2>AlertsDemo</h2>
+<h3>Pop up boxes in HTML</h3>
 
-    <!-- Alert Box -->
-    <div class="box" id="alertSection" name="alertSection">
-        <p id="alertText" name="alertText">
-            Click the below button to display an alert box.
-        </p>
-        <button id="alertBtn" name="alertBtn" onclick="showAlert()">
-            Click me
-        </button>
-    </div>
+<div class="box">
+    <p>Click the below button to display an alert box.</p>
+    <button id="alertBtn" name="alertBtn" onclick="alertBox()">Click me</button>
+</div>
 
-    <!-- Confirm Box -->
-    <div class="box" id="confirmSection" name="confirmSection">
-        <p id="confirmText" name="confirmText">
-            Click the below button to display a confirm box.
-        </p>
-        <button id="confirmBtn" name="confirmBtn" onclick="showConfirm()">
-            Click me
-        </button>
-    </div>
+<div class="box">
+    <p>Click the below button to display a confirm box.</p>
+    <button id="confirmBtn" name="confirmBtn" onclick="confirmBox()">Click me</button>
+</div>
 
-    <!-- Prompt Box -->
-    <div class="box" id="promptSection" name="promptSection">
-        <p id="promptText" name="promptText">
-            Click the below button to display a prompt box.
-        </p>
-        <button id="promptBtn" name="promptBtn" onclick="showPrompt()">
-            Click me
-        </button>
-    </div>
+<div class="box">
+    <p>Click the below button to display a prompt box.</p>
+    <button id="promptBtn" name="promptBtn" onclick="promptBox()">Click me</button>
+</div>
 
-    <!-- Output -->
-    <div class="box" id="outputSection" name="outputSection">
-        <p id="outputLabel" name="outputLabel">Popup box output:</p>
-        <div id="outputBox" name="outputBox"></div>
-    </div>
+<div class="box">
+    <p><b>Popup box output</b></p>
+    <p id="output" name="popupOutput"></p>
+</div>
 
 </body>
 </html>
