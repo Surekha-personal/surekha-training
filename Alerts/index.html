@@ -3,108 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <title>Alerts Demo - Surekha Training</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f7f7f7;
-            margin: 0;
-            padding: 0;
+            margin: 30px;
         }
-        header {
-            background: #2c7be5;
-            color: white;
-            padding: 15px;
-            text-align: center;
+
+        h1 {
+            color: #2c3e50;
         }
-        .container {
-            width: 70%;
-            margin: 30px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-        }
+
         .box {
-            border: 1px solid #ccc;
+            border: 1px solid #999;
+            border-radius: 5px;
             padding: 15px;
             margin-bottom: 15px;
-            border-radius: 5px;
+            width: 500px;
         }
+
         button {
-            padding: 8px 15px;
-            background: #2c7be5;
-            color: white;
-            border: none;
+            padding: 6px 15px;
             cursor: pointer;
-            border-radius: 4px;
         }
-        button:hover {
-            background: #1a5dc9;
-        }
-        #output {
-            margin-top: 15px;
+
+        #outputBox {
             font-weight: bold;
             color: green;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            margin-top: 30px;
-            color: #666;
         }
     </style>
 
     <script>
         function showAlert() {
-            alert("This is an alert box!");
+            alert("This is an Alert Box!");
         }
 
         function showConfirm() {
             let result = confirm("Do you want to continue?");
-            document.getElementById("output").innerText =
-                result ? "You clicked OK" : "You clicked Cancel";
+            document.getElementById("outputBox").innerText =
+                result ? "User clicked OK" : "User clicked Cancel";
         }
 
         function showPrompt() {
             let name = prompt("Enter your name:");
-            if (name) {
-                document.getElementById("output").innerText =
-                    "Hello " + name;
-            }
+            document.getElementById("outputBox").innerText =
+                name ? "Hello " + name : "User cancelled the prompt";
         }
     </script>
 </head>
 
 <body>
 
-<header>
-    <h1>AlertsDemo</h1>
-    <p>Pop up boxes in HTML - Surekha Training</p>
-</header>
+    <h1 id="pageTitle" name="pageTitle">Alerts Demo - Surekha Training</h1>
 
-<div class="container">
-
-    <div class="box">
-        <p>Click the below button to display an alert box.</p>
-        <button onclick="showAlert()">Click me</button>
+    <!-- Alert Box -->
+    <div class="box" id="alertSection" name="alertSection">
+        <p id="alertText" name="alertText">
+            Click the below button to display an alert box.
+        </p>
+        <button id="alertBtn" name="alertBtn" onclick="showAlert()">
+            Click me
+        </button>
     </div>
 
-    <div class="box">
-        <p>Click the below button to display a confirm box.</p>
-        <button onclick="showConfirm()">Click me</button>
+    <!-- Confirm Box -->
+    <div class="box" id="confirmSection" name="confirmSection">
+        <p id="confirmText" name="confirmText">
+            Click the below button to display a confirm box.
+        </p>
+        <button id="confirmBtn" name="confirmBtn" onclick="showConfirm()">
+            Click me
+        </button>
     </div>
 
-    <div class="box">
-        <p>Click the below button to display a prompt box.</p>
-        <button onclick="showPrompt()">Click me</button>
+    <!-- Prompt Box -->
+    <div class="box" id="promptSection" name="promptSection">
+        <p id="promptText" name="promptText">
+            Click the below button to display a prompt box.
+        </p>
+        <button id="promptBtn" name="promptBtn" onclick="showPrompt()">
+            Click me
+        </button>
     </div>
 
-    <div id="output"></div>
-
-</div>
-
-<footer>
-    © 2026 Surekha Training | HTML Practice
-</footer>
+    <!-- Output -->
+    <div class="box" id="outputSection" name="outputSection">
+        <p id="outputLabel" name="outputLabel">Popup box output:</p>
+        <div id="outputBox" name="outputBox"></div>
+    </div>
 
 </body>
 </html>
