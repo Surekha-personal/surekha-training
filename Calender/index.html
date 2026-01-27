@@ -1,66 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Calendars Practice</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-        }
-        h1 {
-            border-bottom: 2px solid #000;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-        .row {
-            margin: 15px 0;
-        }
-        label {
-            width: 120px;
-            display: inline-block;
-        }
-        input[type="date"] {
-            padding: 5px;
-            width: 180px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Calendar Practice</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+    }
+    h2 {
+        border-bottom: 2px solid black;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+    .row {
+        margin: 15px 0;
+    }
+    label {
+        width: 180px;
+        display: inline-block;
+        font-weight: bold;
+    }
+    input, select {
+        padding: 5px;
+    }
+</style>
 </head>
 <body>
 
-    <h1>Calendars Practice</h1>
+<h2>Calendars Practice</h2>
 
-    <p>This page is used for practicing calendars or date pickers.</p>
+<!-- FIRST DATE -->
+<div class="row">
+    <label>First Date (Current Month)</label>
+    <input type="date" id="currentMonth">
+</div>
 
-    <div class="row">
-        <label>First Date</label>
-        <input type="date">
-    </div>
+<!-- THIRD DATE -->
+<div class="row">
+    <label>Third Date (Month & Year)</label>
+    <select id="month"></select>
+    <select id="year"></select>
+    <input type="number" id="day" placeholder="Day" min="1" max="31">
+</div>
 
-    <div class="row">
-        <label>Second Date</label>
-        <input type="date">
-    </div>
+<!-- FOURTH DATE -->
+<div class="row">
+    <label>Fourth Date (Date of Birth)</label>
+    <input type="date" id="dob">
+</div>
 
-    <div class="row">
-        <label>Third Date</label>
-        <input type="date">
-    </div>
+<!-- FIFTH DATE -->
+<div class="row">
+    <label>Fifth Date (Future Only)</label>
+    <input type="date" id="futureDate">
+</div>
 
-    <div class="row">
-        <label>Fourth Date</label>
-        <input type="date">
-    </div>
+<script>
+/* ---------- FIRST DATE: CURRENT MONTH ONLY ---------- */
+const currentMonthInput = document.getElementById("currentMonth");
+const today = new Date();
+const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0);
 
-    <div class="row">
-        <label>Fifth Date</label>
-        <input type="date">
-    </div>
+currentMonthInput.min = firstDay.toISOString().split("T")[0];
+currentMonthInput.max = lastDay.toISOString().split("T")[0];
 
-    <div class="row">
-        <label>Sixth Date</label>
-        <input type="date">
-    </div>
+
+/* ---------- THIRD DATE: MONTH & YEAR DROPDOWNS ---------- */
+const monthSelect = document.getElementById("month");
+const yearSelect = document.getElementById("year");
+
+const months = [
+    "January","February","March","April","May","June",
+    "July","August","September","October","November","December"
+];
+
+months.forEach((m, i) => {
+    let option = document.createElement("option");
+    option.value = i + 1;
+    option.text = m;
+    monthSelect.add(option);
+});
+
+const currentYear = new Date().getFullYear();
+for (let y = currentYear - 50; y <= currentYear + 10; y++) {
+    let option = document.createElement("option");
+    option.value = y;
+    option.text = y;
+    yearSelect.add(option);
+}
+
+
+/* ---------- FOURTH DATE: DATE OF BIRTH ---------- */
+const dobInput = document.getElementById("dob");
+const maxDob = new Date();
+maxDob.setFullYear(maxDob.getFullYear() - 18); // minimum age 18
+dobInput.max = maxDob.toISOString().split("T")[0];
+
+
+/* ---------- FIFTH DATE: FUTURE DATES ONLY ---------- */
+const futureDateInput = document.getElementById("futureDate");
+futureDateInput.min = today.toISOString().split("T")[0];
+</script>
 
 </body>
 </html>
