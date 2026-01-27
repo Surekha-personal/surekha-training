@@ -2,107 +2,52 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Calendar Practice</title>
+<title>Calendars Practice</title>
+
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 40px;
-    }
-    h2 {
-        border-bottom: 2px solid black;
-        display: inline-block;
-        padding-bottom: 5px;
-    }
-    .row {
-        margin: 15px 0;
-    }
-    label {
-        width: 180px;
-        display: inline-block;
-        font-weight: bold;
-    }
-    input, select {
-        padding: 5px;
-    }
-</style>
-</head>
-<body>
-
-<h2>Calendars Practice</h2>
-
-<!-- FIRST DATE -->
-<div class="row">
-    <label>First Date (Current Month)</label>
-    <input type="date" id="currentMonth">
-</div>
-
-<!-- THIRD DATE -->
-<div class="row">
-    <label>Third Date (Month & Year)</label>
-    <select id="month"></select>
-    <select id="year"></select>
-    <input type="number" id="day" placeholder="Day" min="1" max="31">
-</div>
-
-<!-- FOURTH DATE -->
-<div class="row">
-    <label>Fourth Date (Date of Birth)</label>
-    <input type="date" id="dob">
-</div>
-
-<!-- FIFTH DATE -->
-<div class="row">
-    <label>Fifth Date (Future Only)</label>
-    <input type="date" id="futureDate">
-</div>
-
-<script>
-/* ---------- FIRST DATE: CURRENT MONTH ONLY ---------- */
-const currentMonthInput = document.getElementById("currentMonth");
-const today = new Date();
-const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
-const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0);
-
-currentMonthInput.min = firstDay.toISOString().split("T")[0];
-currentMonthInput.max = lastDay.toISOString().split("T")[0];
-
-
-/* ---------- THIRD DATE: MONTH & YEAR DROPDOWNS ---------- */
-const monthSelect = document.getElementById("month");
-const yearSelect = document.getElementById("year");
-
-const months = [
-    "January","February","March","April","May","June",
-    "July","August","September","October","November","December"
-];
-
-months.forEach((m, i) => {
-    let option = document.createElement("option");
-    option.value = i + 1;
-    option.text = m;
-    monthSelect.add(option);
-});
-
-const currentYear = new Date().getFullYear();
-for (let y = currentYear - 50; y <= currentYear + 10; y++) {
-    let option = document.createElement("option");
-    option.value = y;
-    option.text = y;
-    yearSelect.add(option);
+body{
+    font-family: Arial, sans-serif;
+    margin:40px;
 }
-
-
-/* ---------- FOURTH DATE: DATE OF BIRTH ---------- */
-const dobInput = document.getElementById("dob");
-const maxDob = new Date();
-maxDob.setFullYear(maxDob.getFullYear() - 18); // minimum age 18
-dobInput.max = maxDob.toISOString().split("T")[0];
-
-
-/* ---------- FIFTH DATE: FUTURE DATES ONLY ---------- */
-const futureDateInput = document.getElementById("futureDate");
-futureDateInput.min = today.toISOString().split("T")[0];
-</script>
-
-</body>
-</html>
+h1{
+    border-bottom:2px solid #000;
+    display:inline-block;
+}
+.row{
+    margin:15px 0;
+}
+label{
+    width:120px;
+    display:inline-block;
+}
+input{
+    padding:6px;
+    width:180px;
+}
+.calendar{
+    position:absolute;
+    background:#fff;
+    border:1px solid #ccc;
+    padding:10px;
+    display:none;
+}
+.header{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:5px;
+}
+.days{
+    display:grid;
+    grid-template-columns:repeat(7,30px);
+    gap:5px;
+}
+.day{
+    text-align:center;
+    cursor:pointer;
+}
+.day.disabled{
+    color:#ccc;
+    pointer-events:none;
+}
+select{
+    padding
