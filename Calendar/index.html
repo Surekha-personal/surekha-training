@@ -1,83 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <title>Calendars Practice</title>
 
 <link rel="stylesheet"
 href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 40px;
-}
+body { font-family: Arial; margin: 0; }
+.container { display: flex; width: 90%; margin: auto; }
+.left { width: 70%; padding: 30px; }
+.right { width: 30%; padding: 30px; background: #f7f7f7; }
 
-h1 {
-  border-bottom: 2px solid black;
-}
+h1 { border-bottom: 2px solid black; }
+label { width: 120px; display: inline-block; margin: 10px 0; }
+input { width: 180px; padding: 6px; }
 
-label {
-  display: inline-block;
-  width: 120px;
-  margin: 10px 0;
-}
-
-input {
-  width: 180px;
-  padding: 6px;
-}
-
-.inline-calendar {
-  margin-left: 120px; /* aligns like HYR */
-  margin-top: 5px;
-}
+.inline-calendar { margin-left: 120px; }
+.box { margin-bottom: 20px; }
+.btn { background: #ffc107; padding: 10px; text-align: center; border-radius: 5px; }
 </style>
 </head>
 
 <body>
 
+<div class="container">
+
+<div class="left">
 <h1>Calendars Practice</h1>
 
-<!-- First Date : POPUP -->
 <label>First Date</label>
 <input type="text" id="firstDate"><br><br>
 
-<!-- Second Date : INLINE -->
 <label>Second Date</label>
 <div id="secondDate" class="inline-calendar"></div><br>
 
-<!-- Third Date : POPUP -->
 <label>Third Date</label>
-<input type="text" id="thirdDate"><br>
+<input type="text" id="thirdDate">
+</div>
+
+<div class="right">
+<div class="box"><b>Support My Work</b><div class="btn">☕ Buy me a coffee</div></div>
+<div class="box"><b>YouTube</b><br>HYR Tutorials</div>
+<div class="box"><b>Telegram</b><div class="btn">Join Channel</div></div>
+</div>
+
+</div>
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script>
-$(function () {
+$(function(){
 
-  // First Date - popup
-  $("#firstDate").datepicker({
-    changeMonth: true,
-    changeYear: true,
-    dateFormat: "dd-mm-yy"
+  $("#firstDate, #thirdDate").datepicker({
+    changeMonth:true,
+    changeYear:true
   });
 
-  // Second Date - INLINE calendar (EXACT like HYR)
   $("#secondDate").datepicker({
-    changeMonth: true,
-    changeYear: true,
-    minDate: "-1m",
-    maxDate: "+1m",
-    dateFormat: "dd-mm-yy"
-  });
-
-  // Third Date - popup
-  $("#thirdDate").datepicker({
-    changeMonth: true,
-    changeYear: true,
-    dateFormat: "dd-mm-yy"
+    changeMonth:true,
+    changeYear:true,
+    minDate: 0
   });
 
 });
@@ -86,4 +70,3 @@ $(function () {
 </body>
 </html>
 
-\
