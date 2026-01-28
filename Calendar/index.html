@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Calendars Practice</title>
 
-<!-- jQuery UI CSS (THIS controls calendar design) -->
 <link rel="stylesheet"
 href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
@@ -13,49 +12,17 @@ body {
   font-family: Arial, sans-serif;
   margin: 40px;
 }
-
 h1 {
   border-bottom: 2px solid black;
-  padding-bottom: 10px;
 }
-
 label {
   display: inline-block;
   width: 120px;
   margin: 10px 0;
 }
-
 input {
   width: 180px;
   padding: 6px;
-}
-  .calendar{
-    position:absolute;
-    background:#fff;
-    border:1px solid #ccc;
-    padding:10px;
-    display:none;
-}
-.header{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:5px;
-}
-.days{
-    display:grid;
-    grid-template-columns:repeat(7,30px);
-    gap:5px;
-}
-.day{
-    text-align:center;
-    cursor:pointer;
-}
-.day.disabled{
-    color:#ccc;
-    pointer-events:none;
-}
-select{
-    padding:3px;
 }
 </style>
 </head>
@@ -63,12 +30,9 @@ select{
 <body>
 
 <h1>Calendars Practice</h1>
-<p>
-This page is used for practicing calendars or date pickers in web automation.
-</p>
 
 <label>First Date</label>
-<input type="text" class="calendar" id="cal1">x<br>
+<input type="text" class="calendar"><br>
 
 <label>Second Date</label>
 <input type="text" id="secondDate"><br>
@@ -79,109 +43,30 @@ This page is used for practicing calendars or date pickers in web automation.
 <label>Fourth Date</label>
 <input type="text" class="calendar"><br>
 
-<label>Fifth Date</label>
-<input type="text" class="calendar"><br>
-
-<label>Sixth Date</label>
-<input type="text" class="calendar"><br>
-
-<!-- jQuery + jQuery UI -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-
-
 <script>
-// $(function () {
+$(function () {
 
   // Normal calendars
-  // $(".calendar").datepicker({
-  //   changeMonth: true,
-  //   changeYear: true,	
-  //   yearRange: "2000:2035",
-  //   dateFormat: "dd-mm-yy"
-  // });
+  $(".calendar").datepicker({
+    changeMonth: true,
+    changeYear: true,
+    dateFormat: "dd-mm-yy"
+  });
 
-  const today=new Date();
-
-/* ---------- COMMON FUNCTION ---------- */
-function daysInMonth(y,m){ return new Date(y,m+1,0).getDate(); }
-
-/* ---------- FIRST DATE (CURRENT MONTH ONLY) ---------- */
-(function(){
-const input=document.getElementById("firstDate");
-const cal=document.getElementById("cal1");
-input.onclick=()=>{cal.style.display="block";}
-const y=today.getFullYear(),m=today.getMonth();
-let html='<div class="days">';
-for(let d=1;d<=daysInMonth(y,m);d++)
-html+=`<div class="day" onclick="pick('${input.id}','${d}-${m+1}-${y}')">${d}</div>`;
-html+='</div>';
-cal.innerHTML=html;
-})();
-
-/* ---------- THIRD DATE (MONTH + YEAR DROPDOWN) ---------- */
-(function(){
-const input=document.getElementById("thirdDate");
-const cal=document.getElementById("cal3");
-input.onclick=()=>render();
-function render(){
-cal.style.display="block";
-let html='<div class="header">';
-html+='<select id="m3">';
-["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-.forEach((m,i)=>html+=`<option value="${i}">${m}</option>`);
-html+='</select>';
-html+='<select id="y3">';
-for(let y=1990;y<=2035;y++) html+=`<option>${y}</option>`;
-html+='</select></div><div class="days">';
-for(let d=1;d<=31;d++)
-html+=`<div class="day" onclick="pick('${input.id}',this.innerText+'-'+(Number(m3.value)+1)+'-'+y3.value)">${d}</div>`;
-html+='</div>';
-cal.innerHTML=html;
-}
-})();
-
-/* ---------- FOURTH DATE (DOB – PAST ONLY) ---------- */
-(function(){
-const input=document.getElementById("fourthDate");
-const cal=document.getElementById("cal4");
-input.onclick=()=>render();
-function render(){
-cal.style.display="block";
-let html='<div class="header"><select id="y4">';
-for(let y=today.getFullYear()-100;y<=today.getFullYear()-1;y++)
-html+=`<option>${y}</option>`;
-html+='</select></div><div class="days">';
-for(let d=1;d<=31;d++)
-html+=`<div class="day" onclick="pick('${input.id}',d+'-01-'+y4.value)">${d}</div>`;
-html+='</div>';
-cal.innerHTML=html;
-}
-})();
-
-/* ---------- FIFTH DATE (FUTURE ONLY) ---------- */
-(function(){
-const input=document.getElementById("fifthDate");
-const cal=document.getElementById("cal5");
-input.onclick=()=>render();
-function render(){
-cal.style.display="block";
-let html='<div class="days">';
-for(let d=today.getDate();d<=daysInMonth(today.getFullYear(),today.getMonth());d++)
-html+=`<div class="day" onclick="pick('${input.id}',d+'-'+(today.getMonth()+1)+'-'+today.getFullYear())">${d}</div>`;
-html+='</div>';
-cal.innerHTML=html;
-}
-})();
-
-/* ---------- PICK DATE ---------- */
-function pick(id,val){
-document.getElementById(id).value=val;
-document.querySelectorAll('.calendar').forEach(c=>c.style.display="none");
-}
+  // Second Date: ONLY last month to next month
+  $("#secondDate").datepicker({
+    changeMonth: true,
+    changeYear: true,
+    minDate: "-1m",
+    maxDate: "+1m",
+    dateFormat: "dd-mm-yy"
+  });
 
 });
 </script>
+
 </body>
 </html>
