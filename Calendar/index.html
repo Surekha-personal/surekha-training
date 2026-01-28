@@ -43,7 +43,7 @@ This page is used for practicing calendars or date pickers in web automation.
 <input type="text" class="calendar"><br>
 
 <label>Second Date</label>
-<input type="text" class="calendar"><br>
+<input type="text" id="secondDate"><br>
 
 <label>Third Date</label>
 <input type="text" class="calendar"><br>
@@ -61,16 +61,29 @@ This page is used for practicing calendars or date pickers in web automation.
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+
+
 <script>
 $(function () {
+
+  // Normal calendars
   $(".calendar").datepicker({
     changeMonth: true,
-    changeYear: true,
+    changeYear: true,	
     yearRange: "2000:2035",
     dateFormat: "dd-mm-yy"
   });
+
+  // Second Date: ONLY last month to next month
+  $("#secondDate").datepicker({
+    changeMonth: true,
+    changeYear: true,
+    minDate: "-1m",
+    maxDate: "+1m",
+    dateFormat: "dd-mm-yy"
+  });
+
 });
 </script>
-
 </body>
 </html>
