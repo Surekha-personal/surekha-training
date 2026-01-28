@@ -1,24 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Calendars Practice</title>
 
+<!-- jQuery UI CSS (HYR uses this look) -->
 <link rel="stylesheet"
 href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <style>
-body { font-family: Arial; margin: 0; }
-.container { display: flex; width: 90%; margin: auto; }
-.left { width: 70%; padding: 30px; }
-.right { width: 30%; padding: 30px; background: #f7f7f7; }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #ffffff;
+}
 
-h1 { border-bottom: 2px solid black; }
-label { width: 120px; display: inline-block; margin: 10px 0; }
-input { width: 180px; padding: 6px; }
+.container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  padding-top: 20px;
+}
 
-.inline-calendar { margin-left: 120px; }
-.box { margin-bottom: 20px; }
-.btn { background: #ffc107; padding: 10px; text-align: center; border-radius: 5px; }
+.left {
+  width: 70%;
+}
+
+.right {
+  width: 30%;
+  padding-left: 30px;
+}
+
+h1 {
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+label {
+  display: inline-block;
+  width: 120px;
+  margin: 10px 0;
+}
+
+input {
+  width: 180px;
+  padding: 6px;
+}
+
+/* Inline calendar positioning (HYR style) */
+.inline-calendar {
+  margin-left: 120px;
+  margin-bottom: 15px;
+}
+
+/* Sidebar */
+.box {
+  margin-bottom: 25px;
+}
+
+.coffee {
+  background: #ffcc00;
+  padding: 12px;
+  text-align: center;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.subscribe img {
+  width: 40px;
+  vertical-align: middle;
+}
+
+.telegram {
+  background: #3aa1e0;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  border-radius: 6px;
+}
 </style>
 </head>
 
@@ -26,42 +89,82 @@ input { width: 180px; padding: 6px; }
 
 <div class="container">
 
+<!-- ================= LEFT CONTENT ================= -->
 <div class="left">
+
 <h1>Calendars Practice</h1>
 
+<p>
+This page is used for practicing <b>calendars or date pickers</b> in web automation.
+We have many types of calendar available in HTML and here I have listed few which
+are used most widely in any web application.
+</p>
+
 <label>First Date</label>
-<input type="text" id="firstDate"><br><br>
+<input type="text" id="firstDate"><br>
 
 <label>Second Date</label>
-<div id="secondDate" class="inline-calendar"></div><br>
+<div id="secondDate" class="inline-calendar"></div>
 
 <label>Third Date</label>
-<input type="text" id="thirdDate">
+<input type="text" id="thirdDate"><br>
+
+<label>Fourth Date</label>
+<input type="text" id="fourthDate"><br>
+
+<label>Fifth Date</label>
+<input type="text" id="fifthDate"><br>
+
+<label>Sixth Date</label>
+<input type="text" id="sixthDate"><br>
+
 </div>
 
+<!-- ================= RIGHT SIDEBAR ================= -->
 <div class="right">
-<div class="box"><b>Support My Work</b><div class="btn">☕ Buy me a coffee</div></div>
-<div class="box"><b>YouTube</b><br>HYR Tutorials</div>
-<div class="box"><b>Telegram</b><div class="btn">Join Channel</div></div>
+
+<div class="box">
+  <b>SUPPORT MY WORK</b><br><br>
+  <div class="coffee">☕ Buy me a coffee</div>
+</div>
+
+<div class="box subscribe">
+  <b>SUBSCRIBE TO YOUTUBE CHANNELS</b><br><br>
+  <img src="https://yt3.ggpht.com/ytc/AKedOLQAAAAAAA" alt="">
+  HYR Tutorials<br><br>
+  <img src="https://yt3.ggpht.com/ytc/AKedOLQAAAAAAA" alt="">
+  HYR Tutorials - Telugu
+</div>
+
+<div class="box">
+  <b>TELEGRAM</b><br><br>
+  <div class="telegram">Join Telegram Channel</div>
 </div>
 
 </div>
+</div>
 
+<!-- ================= SCRIPTS ================= -->
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <script>
-$(function(){
+$(function () {
 
-  $("#firstDate, #thirdDate").datepicker({
-    changeMonth:true,
-    changeYear:true
+  // Popup calendars (same look)
+  $("#firstDate, #thirdDate, #fourthDate, #fifthDate, #sixthDate").datepicker({
+    changeMonth: true,
+    changeYear: true,
+    dateFormat: "dd-mm-yy"
   });
 
+  // Inline calendar (Second Date) - HYR style
   $("#secondDate").datepicker({
-    changeMonth:true,
-    changeYear:true,
-    minDate: 0
+    changeMonth: true,
+    changeYear: true,
+    minDate: "-1m",
+    maxDate: "+1m",
+    dateFormat: "dd-mm-yy"
   });
 
 });
@@ -69,4 +172,3 @@ $(function(){
 
 </body>
 </html>
-
