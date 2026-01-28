@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Calendars Practice</title>
+
+<!-- jQuery UI CSS (THIS controls calendar design) -->
+<link rel="stylesheet"
+href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+}
+
+h1 {
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+}
+
+label {
+  display: inline-block;
+  width: 120px;
+  margin: 10px 0;
+}
+
+input {
+  width: 180px;
+  padding: 6px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Calendars Practice</h1>
+<p>
+This page is used for practicing calendars or date pickers in web automation.
+</p>
+
+<label>First Date</label>
+<input type="text" class="calendar"><br>
+
+<label>Second Date</label>
+<input type="text" class="calendar"><br>
+
+<label>Third Date</label>
+<input type="text" class="calendar"><br>
+
+<label>Fourth Date</label>
+<input type="text" class="calendar"><br>
+
+<label>Fifth Date</label>
+<input type="text" class="calendar"><br>
+
+<label>Sixth Date</label>
+<input type="text" class="calendar"><br>
+
+<!-- jQuery + jQuery UI -->
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+$(function () {
+  $(".calendar").datepicker({
+    changeMonth: true,
+    changeYear: true,
+    yearRange: "2000:2035",
+    dateFormat: "dd-mm-yy"
+  });
+});
+</script>
+
+</body>
+</html>
