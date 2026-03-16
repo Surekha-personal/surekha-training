@@ -37,8 +37,8 @@ Textbox1 will be displayed after <b>5 seconds</b> and
 Textbox2 will be displayed after <b>10 seconds</b>
 </p>
 
-<button onclick="addTextbox1()">Add Textbox1</button>
-<button onclick="addTextbox2()">Add Textbox2</button>
+<button id="btn1" onclick="addTextbox1()">Add Textbox1</button>
+<button id="btn2" onclick="addTextbox2()">Add Textbox2</button>
 
 <h3>Show the textboxes here:</h3>
 
@@ -51,6 +51,8 @@ function addTextbox1(){
 setTimeout(function(){
 
 let input = document.createElement("input");
+  input.type="text";
+input.id="txt1";
 input.placeholder="Textbox1";
 
 document.getElementById("textboxArea").appendChild(input);
@@ -64,6 +66,8 @@ function addTextbox2(){
 setTimeout(function(){
 
 let input = document.createElement("input");
+  input.type="text";
+input.id="txt2";
 input.placeholder="Textbox2";
 
 document.getElementById("textboxArea").appendChild(input);
